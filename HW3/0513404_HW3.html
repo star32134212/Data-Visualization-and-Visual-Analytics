@@ -1,0 +1,441 @@
+<html>
+<head>
+</head>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<body>
+</body>
+</html>
+
+<script type="text/javascript">
+
+//var parseDate = d3.time.format('YYYY-MM-DD').parse;                             
+
+// var parseDate = d3.time.format("%Y-%m-%d").parse;
+// select body and append a new svg.
+var svg = d3.select("body")
+	.append("svg")
+  	.attr("class", "my_canvas")
+    .attr("width", "1500px")
+	.attr("height", "520px");
+	
+// select the svg area
+var svg = d3.select("body")
+	.append("svg")
+  	.attr("class", "my_legend")
+    .attr("width", "900px")
+	.attr("height", "40px");
+
+//legend
+//台北市
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",10).attr("cy",10)
+	.attr("r", 6)
+	.style("fill", "#FF44AA")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 30).attr("y",10)
+	.text("臺北市") 
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")
+//新北市
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",10).attr("cy",30)
+	.attr("r", 6)
+	.style("fill", "#A20055")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 30).attr("y",30)
+	.text("新北市")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")
+//基隆市
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",90).attr("cy",10)
+	.attr("r", 6)
+	.style("fill", "#0066FF")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 110).attr("y",10)
+	.text("基隆市")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")
+//宜蘭縣
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",90).attr("cy",30)
+	.attr("r", 6)
+	.style("fill", "#886600")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 110).attr("y",30)
+	.text("宜蘭縣")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")
+//桃園市
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",170).attr("cy",10)
+	.attr("r", 6)
+	.style("fill", "#FFBB00")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 190).attr("y",10)
+	.text("桃園市")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")
+//新竹市
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",170).attr("cy",30)
+	.attr("r", 6)
+	.style("fill", "#FFFF33")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 190).attr("y",30)
+	.text("新竹市")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")
+//新竹縣
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",250).attr("cy",10)
+	.attr("r", 6)
+	.style("fill", "#AAAAAA")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 270).attr("y",10)
+	.text("新竹縣")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")
+//苗栗縣
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",250).attr("cy",30)
+	.attr("r", 6)
+	.style("fill", "99FF99")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 270).attr("y",30)
+	.text("苗栗縣")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")
+//臺中市
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",330).attr("cy",10)
+	.attr("r", 6)
+	.style("fill", "#227700")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 350).attr("y",10)
+	.text("臺中市")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")
+//南投縣
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",330).attr("cy",30)
+	.attr("r", 6)
+	.style("fill", "#0000CC")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 350).attr("y",30)
+	.text("南投縣")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")
+//彰化縣
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",410).attr("cy",10)
+	.attr("r", 6)
+	.style("fill", "#66FFFF")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 430).attr("y",10)
+	.text("彰化縣")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")
+//雲林縣
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",410).attr("cy",30)
+	.attr("r", 6)
+	.style("fill", "#FF00FF")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 430).attr("y",30)
+	.text("雲林縣")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")
+//嘉義縣
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",490).attr("cy",10)
+	.attr("r", 6)
+	.style("fill", "#444444")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 510).attr("y",10)
+	.text("嘉義縣")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")
+//嘉義市
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",490).attr("cy",30)
+	.attr("r", 6)
+	.style("fill", "#E8CCFF")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 510).attr("y",30)
+	.text("嘉義市")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")
+//臺南市
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",570).attr("cy",10)
+	.attr("r", 6)
+	.style("fill", "#33FFDD")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 590).attr("y",10)
+	.text("臺南市")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")
+//高雄市
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",570).attr("cy",30)
+	.attr("r", 6)
+	.style("fill", "red")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 590).attr("y",30)
+	.text("高雄市")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")	
+//屏東縣
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",650).attr("cy",10)
+	.attr("r", 6)
+	.style("fill", "#00DD77")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 670).attr("y",10)
+	.text("屏東縣")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")	
+//臺東縣
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",650).attr("cy",30)
+	.attr("r", 6)
+	.style("fill", "#9F88FF")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 670).attr("y",30)
+	.text("臺東縣")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")	
+//花蓮縣
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",730).attr("cy",10)
+	.attr("r", 6)
+	.style("fill", "#5500FF")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 750).attr("y",10)
+	.text("花蓮縣")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")	
+//澎湖縣
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",730).attr("cy",30)
+	.attr("r", 6)
+	.style("fill", "#FF77FF")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 750).attr("y",30)
+	.text("澎湖縣")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")	
+//金門縣
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",810).attr("cy",10)
+	.attr("r", 6)
+	.style("fill", "#CC00CC")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 830).attr("y",10)
+	.text("金門縣")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")	
+//連江縣
+svg.append("circle")
+	.attr("class","dot")
+	.attr("cx",810).attr("cy",30)
+	.attr("r", 6)
+	.style("fill", "#990099")
+svg.append("text")
+	.attr("class","my_legend")
+	.attr("x", 830).attr("y",30)
+	.text("連江縣")
+	.style("font-size", "15px")
+	.attr("alignment-baseline","middle")	
+
+
+
+//2007/3 ~ 2019/7
+var f = 3;
+var date_array = [];
+var county_array = [];
+var dif_array = [];
+d3.csv("/縣市人口統計.csv",
+	function(data){
+	data.forEach(function(data){
+		data.dif = parseInt(data.人口差);
+		data.date = parseFloat(data.Date);
+		data.date = data.date + 0.083 * f;
+		f++;
+		if (data.date == 2019.581){
+			f = 3;
+		}
+		if (f == 12){
+			f = 0;
+		}
+		//console.log("datadate: "+ data.date);
+		date_array.push(data.date);
+		dif_array.push(data.dif);
+	});
+		var data_array = date_array.map(function(e, i) {
+			return [e, dif_array[i]];
+		});
+		console.log("data_array: "+data_array[1]+"//"+data_array[0])
+		// get the min(0)/max(1) value of data
+		var people = d3.extent(data, function(data){ return data.dif });
+		var date = d3.extent(data, function(data){ return data.date });
+
+		//console.log("people  "+people);
+		//console.log("date  "+date);
+		//var parseDate = d3.time.format("%Y-%m-%d").parse;
+
+		// 改X-axis長度
+		var x_scale = d3.scaleLinear()
+			.domain([2007, 2021])
+			.range([0, 1450]);
+
+		// Y-axis
+		var y_scale = d3.scaleLinear()
+			.domain([people[1]+15, people[0]-15])
+			.range([0, 500]);
+
+
+		// add plot canvas
+		d3.select("svg").append("g")
+			.attr("class", "new_canvas")
+			.attr("transform", "translate(60, 0)")
+
+		// Add X axis
+		d3.select("svg").append("g")
+			.attr("class", "x-axis")
+			.attr("transform", "translate(63, 355)")
+			.call(d3.axisBottom(x_scale));
+
+		// Add Y axis
+		d3.select("svg").append("g")
+			.attr("class", "y-axis")
+			.attr("transform", "translate(60, 0)")
+			.call(d3.axisLeft(y_scale));	
+
+		// 新增點
+		for(var count = 0 ; count < data.length; count++){
+			d3.select(".new_canvas")
+			.selectAll(".dot")
+			.data(data)
+			.enter()
+			.append('circle')
+			.attr("class", "dot")
+			.attr('cx', function (data) { return x_scale(data.date); })
+			.attr('cy', function (data) { return y_scale(data.dif); })
+			.attr('r', 3)
+			//.attr('fill',"#D4C685");
+			.attr(
+				'fill',function(data){
+					if(data.縣市 == "高雄市"){ return 'red'; }
+					if(data.縣市 == "新竹市"){ return '#FFFF33'; }
+					if(data.縣市 == "雲林縣"){ return '#FF00FF'; }
+					if(data.縣市 == "金門縣"){ return '#CC00CC'; }
+					if(data.縣市 == "連江縣"){ return '#990099'; }
+					if(data.縣市 == "苗栗縣"){ return '#99FF99'; }
+					if(data.縣市 == "花蓮縣"){ return '#5500FF'; }
+					if(data.縣市 == "臺東縣"){ return '#9F88FF'; }
+					if(data.縣市 == "臺南市"){ return '#33FFDD'; }
+					if(data.縣市 == "臺北市"){ return '#FF44AA'; }
+					if(data.縣市 == "新北市"){ return '#A20055'; }
+					if(data.縣市 == "臺中市"){ return '#227700'; }
+					if(data.縣市 == "福建省"){ return '#FFFFFF'; }
+					if(data.縣市 == "桃園市"){ return '#FFBB00'; }			
+					if(data.縣市 == "新竹縣"){ return '#AAAAAA'; }		
+					if(data.縣市 == "澎湖縣"){ return '#FF77FF'; }		
+					if(data.縣市 == "彰化縣"){ return '#66FFFF'; }		
+					if(data.縣市 == "屏東縣"){ return '#00DD77'; }		
+					if(data.縣市 == "宜蘭縣"){ return '#886600'; }		
+					if(data.縣市 == "嘉義縣"){ return '#444444'; }		
+					if(data.縣市 == "嘉義市"){ return '#E8CCFF'; }		
+					if(data.縣市 == "基隆市"){ return '#0066FF'; }			
+					if(data.縣市 == "南投縣"){ return '#0000CC'; }										
+				}
+			)
+
+
+		}
+		//console.log("ans: "+ date_array);
+		//console.log("ans2: "+ dif_array);
+		// 增加一個line function，用來把資料轉為x, y
+		var linePath = d3.line()
+                .x(function(d){ return x_scale(date_array) })
+                .y(function(d){ return y_scale(date_array) });
+
+		console.log("data_array2: "+data_array[1][0]+"//"+x_scale(data_array[1][0])+"//"+data_array[1][1]+"//"+y_scale(data_array[1][1]))
+
+		var line = d3.line()
+			.y(function(d,i) {
+			//console.log("scalex: "+ x_scale(data_array[i][1]))
+			//return data_array[i][1]
+			return y_scale(path_data[i][1]);//[1]人口差
+			})	
+			.x(function(d,i) {
+			//console.log("scaley: "+ y_scale(data_array[i][0]))
+			//return data_array[i][0]
+			return x_scale(path_data[i][0]);//[0]年份
+			});
+		var color_array = ['red','#FF00FF','#CC00CC','#990099','#99FF99','#5500FF','#9F88FF','#33FFDD','#FF44AA','#227700','#FFFFFF','#FF77FF','#FFBB00','#AAAAAA','#FFFF33','#A20055','#66FFFF','#00DD77','#886600','#0066FF','#444444','#E8CCFF','#0000CC']
+		for(var p=0 ; p < 23 ; p++){
+			var path_data = data_array.slice(p * 149,p * 149 + 149)
+			console.log(path_data[1])
+			d3.select(".new_canvas")
+			.append("path")
+			.attr('d',line(path_data))
+			.style("fill","#F00")
+			.style("fill","none")
+			.style("stroke-width",3)
+			.style("stroke",color_array[p])//控制線條顏色
+			.style("stroke-opacity",1.9);
+		}
+
+	});
+
+
+
+          
+
+
+</script>

@@ -1,0 +1,69 @@
+<html>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<body>
+</body>
+</html>
+
+<script type="text/javascript">
+
+// select body and append a new svg.
+var svg = d3.select("body")
+	.append("svg")
+  	.attr("class", "my_canvas")
+    .attr("width", "600px")
+    .attr("height", "400px");
+
+d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv",
+	// data manipulation (convert string to int)
+	function(data){
+	data.forEach(function(d){
+		d.GrLivArea = parseInt(d.GrLivArea);
+		d.SalePrice = parseInt(d.SalePrice);
+	});
+
+	// get the min/max value of data
+	var GrLivArea_Range = d3.extent(data, function(d){ return d.GrLivArea; });
+	var SalePrice_Range = d3.extent(data, function(d){ return d.SalePrice; });
+
+	// map "GrLivArea" to X-axis
+	var x_scale = d3.scaleLinear()
+		.domain([0, GrLivArea_Range[1]])
+		.range([0, 600-60]);
+
+	// map "SalePrice" to Y-axis
+	var y_scale = d3.scaleLinear()
+		.domain([0, SalePrice_Range[1]])
+		.range([400-60, 0]);
+
+	// add plot canvas
+	d3.select("svg").append("g")
+		.attr("class", "new_canvas")
+		.attr("transform", "translate(60, 0)")
+
+	// Add X axis
+	d3.select("svg").append("g")
+		.attr("class", "x-axis")
+		.attr("transform", "translate(60, 340)")
+		.call(d3.axisBottom(x_scale));
+
+	// Add Y axis
+	d3.select("svg").append("g")
+		.attr("class", "y-axis")
+		.attr("transform", "translate(60, 0)")
+		.call(d3.axisLeft(y_scale));
+
+	// map "SalePrice" to color (square)
+	var color_scale = d3.scaleSqrt()
+		.domain([0, SalePrice_Range[1]])
+		.range(["#D4C685", "#696047"])
+
+    // Add dots
+    d3.select(".new_canvas").selectAll(".dot").data(data)
+      .enter().append("circle")
+      	.attr("class", "dot")
+        .attr("cx", function (d) { return x_scale(d.GrLivArea); } )
+        .attr("cy", function (d) { return y_scale(d.SalePrice); } )
+        .attr("r", 1.5)
+        .style("fill", function(d) { return color_scale(d.SalePrice);});
+	});
+</script>
